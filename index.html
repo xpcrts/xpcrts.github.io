@@ -1,179 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chanrithisak Phok (Cal) - Personal Page</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
-<body>
-  <div class="wrapper">
-    <!-- Left Sidebar -->
-    <aside class="sidebar">
-      <div class="window-title">Chanrithisak Phok (Cal)</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chanrithisak Phok (Cal) - Personal Page</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Left Sidebar -->
+      <aside class="sidebar">
+        <div class="window-title">Chanrithisak Phok (Cal)</div>
 
-      <img
-        src="public/chanrithisak_phok_profile.jpeg"
-        alt="Chanrithisak Phok (Cal)"
-        class="profile-img"
-      />
+        <img
+          src="public/chanrithisak_phok_profile.jpeg"
+          alt="Chanrithisak Phok (Cal)"
+          class="profile-img"
+        />
 
-      <div class="contact-info">
-        <i class="fas fa-user-graduate"></i> Undergraduate Student<br />
-        <i class="fas fa-building"></i> Your Lab / Group at Your Department<br />
-        <i class="fas fa-envelope"></i>
-        <a href="mailto:phokchanrithisak@gmail.com">phokchanrithisak@gmail.com</a><br />
-        <i class="fab fa-github"></i>
-        <a href="https://github.com/yourgithub" target="_blank">GitHub</a> |
-        <i class="fas fa-graduation-cap"></i>
-        <a href="#" target="_blank">Google Scholar</a> |
-        <i class="fab fa-linkedin"></i>
-        <a href="#" target="_blank">LinkedIn</a><br /><br />
-        <a href="#">CV</a>, <a href="#">transcript</a>
-      </div>
+        <div class="contact-info">
+          <i class="fas fa-user-graduate"></i> Undergraduate Student<br />
+          <i class="fas fa-map-marker-alt"></i> Sacramento, California, US<br />
+          <!-- <i class="fas fa-building"></i> Your Lab / Group at Your Department<br /> -->
+          <span><strong>Contact:</strong> </span
+          ><a href="mailto:phokchanrithisak@gmail.com"
+            >phokchanrithisak@gmail.com</a
+          ><br />
+          <!-- <i class="fab fa-github"></i> -->
+          <span><strong>Github:</strong> </span
+          ><a href="https://github.com/yourgithub" target="_blank">xpcrts</a> 
+          <!-- <i class="fas fa-graduation-cap"></i>
+          <a href="#" target="_blank">Google Scholar</a> |
+          <i class="fab fa-linkedin"></i>
+          <a href="#" target="_blank">LinkedIn</a><br /><br />
+          <a href="#">CV</a>, <a href="#">transcript</a> -->
+        </div>
 
-      <nav class="sidebar-nav">
-        <a href="#about">About Me</a>
-        <a href="#experience">Industrial Experience</a>
-        <a href="#awards">Honors & Awards</a>
-        <a href="#activities">Extracurricular Activities</a>
-        <a href="#blog">Blog</a>
-      </nav>
+        <nav class="sidebar-nav">
+          <a href="#about">About Me</a>
+          <a href="#experience">Industrial Experience</a>
+          <a href="#awards">Honors & Awards</a>
+          <a href="#activities">Extracurricular Activities</a>
+          <a href="#blog">Blog</a>
+        </nav>
 
-      <div class="news">
-        <strong>News (More Updates)</strong><br />
-        202X.XX Joining the Your Group as a PhD student in Fall '2X.<br />
-      </div>
-    </aside>
+        <div class="news">
+          <strong>News (More Updates)</strong><br />
+          No latest blog post available<br />
+        </div>
+      </aside>
 
-    <!-- Right Main Content -->
-    <main class="main-content">
-      <div class="title-bar">
-        <span class="window-title">Welcome to My Homepage</span>
-        <button class="close-btn" onclick="window.location.href='bsod.html'">X</button>
-      </div>
+      <!-- Right Main Content -->
+      <main class="main-content">
+        <div class="title-bar">
+          <span class="window-title">Welcome to My Homepage</span>
+          <button class="close-btn" onclick="window.location.href='bsod.html'">
+            X
+          </button>
+        </div>
 
-      <!-- Tabs -->
-      <div class="tabs">
-        <a href="#about" class="tab active" data-tab="about">About Me</a>
-        <a href="#experience" class="tab" data-tab="experience">Industrial Experience</a>
-        <a href="#awards" class="tab" data-tab="awards">Honors & Awards</a>
-        <a href="#activities" class="tab" data-tab="activities">Extracurricular Activities</a>
-        <a href="#blog" class="tab" data-tab="blog">Blog</a>
-      </div>
+        <!-- Tabs -->
+        <div class="tabs">
+          <a href="#about" class="tab active" data-tab="about">About Me</a>
+          <a href="#experience" class="tab" data-tab="experience"
+            >Industrial Experience</a
+          >
+          <a href="#awards" class="tab" data-tab="awards">Honors & Awards</a>
+          <a href="#activities" class="tab" data-tab="activities"
+            >Extracurricular Activities</a
+          >
+          <a href="#blog" class="tab" data-tab="blog">Blog</a>
+        </div>
 
-      <!-- Tab Content Panels -->
-      <div class="tab-content">
-        <!-- About Me -->
-        <section id="about" class="panel active">
-          <h2>About Me</h2>
-          <p>
-            I am a Lead Full-Stack Software Engineer building scalable mobile
-            and web systems, with a growing focus on Applied AI Engineering
-            and cybersecurity. My work explores how intelligent systems can be
-            integrated into production software while maintaining strong
-            guarantees around security, performance, and reliability. I am
-            particularly interested in designing systems that scale in
-            practice, remain secure under real-world constraints, and
-            meaningfully improve how people interact with technology.
-          </p>
-        </section>
+        <!-- Tab Content Panels -->
+        <div class="tab-content">
+          <!-- About Me -->
+          <section id="about" class="panel active">
+            <h2>About Me</h2>
+            <p>
+              I am a Lead Full-Stack Software Engineer building scalable mobile
+              and web systems, with a growing focus on Applied AI Engineering
+              and cybersecurity. My work explores how intelligent systems can be
+              integrated into production software while maintaining strong
+              guarantees around security, performance, and reliability. I am
+              particularly interested in designing systems that scale in
+              practice, remain secure under real-world constraints, and
+              meaningfully improve how people interact with technology.
+            </p>
+          </section>
 
-        <!-- Industrial Experience -->
-        <section id="experience" class="panel">
-          <h2>Industrial Experience</h2>
-          <div class="publication">
-            <strong>Lecturing at Kirirom Institute of Technology</strong><br />
-            Lecturer in FullStack Web Development, Cloud DevOps, and Agile
-            Methodologies: Designed and delivered advanced courses covering
-            Node.js, Express, RESTful and GraphQL APIs, React.js, Next.js,
-            Docker, Kubernetes, Microservices, AWS, and Scrum. Mentored
-            students, guiding hands-on projects and applying real-world cloud
-            and agile practices.
-          </div>
-          <div class="publication">
-            <strong>Blockchain-Based Activity & Rewards Platform</strong><br />
-            A mobile application inspired by activity-based incentive models,
-            combining blockchain-backed assets with real-world user activity.
-            The platform supports large-scale daily usage, integrates on-chain
-            and off-chain components, and is designed to operate reliably
-            under sustained user load.
-          </div>
-          <div class="publication">
-            <strong>Kenzo (LVMH Group) — Global Retail Training & Communication Platform</strong><br />
-            A mobile and web platform for retail staff training and internal
-            communication, deployed across 118 international retail locations.
-            Includes region-specific infrastructure and real-time updates.
-          </div>
-          <div class="publication">
-            <strong>Laboratory Gilbert — Progressive Web E-Commerce Platform</strong><br />
-            A progressive web application for e-commerce with global real-time
-            availability, transaction handling, and performance monitoring.
-          </div>
-          <div class="publication">
-            <strong>Distributed Insurance Self-Service Kiosk System</strong><br />
-            A distributed self-service kiosk platform for insurance sales across
-            Southeast Asia, integrated with enterprise and legacy systems.
-          </div>
-          <div class="publication">
-            <strong>Speech Emotion & Stress Analysis System</strong><br />
-            An applied AI research system analyzing phonemes, prosody, and
-            acoustic features to detect emotion and stress in call centers.
-          </div>
-        </section>
+          <!-- Industrial Experience -->
+          <section id="experience" class="panel">
+            <h2>Industrial Experience</h2>
+            <div class="publication">
+              <strong>Lecturing at Kirirom Institute of Technology</strong
+              ><br />
+              Lecturer in FullStack Web Development, Cloud DevOps, and Agile
+              Methodologies: Designed and delivered advanced courses covering
+              Node.js, Express, RESTful and GraphQL APIs, React.js, Next.js,
+              Docker, Kubernetes, Microservices, AWS, and Scrum. Mentored
+              students, guiding hands-on projects and applying real-world cloud
+              and agile practices.
+            </div>
+            <div class="publication">
+              <strong>Blockchain-Based Activity & Rewards Platform</strong
+              ><br />
+              A mobile application inspired by activity-based incentive models,
+              combining blockchain-backed assets with real-world user activity.
+              The platform supports large-scale daily usage, integrates on-chain
+              and off-chain components, and is designed to operate reliably
+              under sustained user load.
+            </div>
+            <div class="publication">
+              <strong
+                >Kenzo (LVMH Group) — Global Retail Training & Communication
+                Platform</strong
+              ><br />
+              A mobile and web platform for retail staff training and internal
+              communication, deployed across 118 international retail locations.
+              Includes region-specific infrastructure and real-time updates.
+            </div>
+            <div class="publication">
+              <strong
+                >Laboratory Gilbert — Progressive Web E-Commerce
+                Platform</strong
+              ><br />
+              A progressive web application for e-commerce with global real-time
+              availability, transaction handling, and performance monitoring.
+            </div>
+            <div class="publication">
+              <strong>Distributed Insurance Self-Service Kiosk System</strong
+              ><br />
+              A distributed self-service kiosk platform for insurance sales
+              across Southeast Asia, integrated with enterprise and legacy
+              systems.
+            </div>
+            <div class="publication">
+              <strong>Speech Emotion & Stress Analysis System</strong><br />
+              An applied AI research system analyzing phonemes, prosody, and
+              acoustic features to detect emotion and stress in call centers.
+            </div>
+          </section>
 
-        <!-- Honors & Awards -->
-        <section id="awards" class="panel">
-          <h2>Honors & Awards</h2>
-          <p>[Add your awards, scholarships, competitions, etc. here]</p>
-          <!-- Example -->
-          <!-- <div class="publication">
+          <!-- Honors & Awards -->
+          <section id="awards" class="panel">
+            <h2>Honors & Awards</h2>
+            <p>[Add your awards, scholarships, competitions, etc. here]</p>
+            <!-- Example -->
+            <!-- <div class="publication">
             <strong>Dean's List - Fall 2023</strong><br />
             Recognized for academic excellence.
           </div> -->
-        </section>
+          </section>
 
-        <!-- Extracurricular Activities -->
-        <section id="activities" class="panel">
-          <h2>Extracurricular Activities</h2>
-          <p>[Add your clubs, volunteering, leadership roles, etc. here]</p>
-        </section>
+          <!-- Extracurricular Activities -->
+          <section id="activities" class="panel">
+            <h2>Extracurricular Activities</h2>
+            <p>[Add your clubs, volunteering, leadership roles, etc. here]</p>
+          </section>
 
-        <!-- Blog -->
-        <section id="blog" class="panel">
-          <h2>Blog</h2>
-          <p>Coming soon... or embed your Medium/Hashnode posts here later!</p>
-          <!-- You can later add RSS feed fetcher here -->
-        </section>
-      </div>
-    </main>
-  </div>
+          <!-- Blog -->
+          <section id="blog" class="panel">
+            <h2>Blog</h2>
+            <p>
+              Coming soon... or embed your Medium/Hashnode posts here later!
+            </p>
+            <!-- You can later add RSS feed fetcher here -->
+          </section>
+        </div>
+      </main>
+    </div>
 
-  <!-- Production credit -->
-  <div class="production-credit">a Chanrithisak Phok Production © 2016</div>
+    <!-- Production credit -->
+    <div class="production-credit">a Chanrithisak Phok Production © 2016</div>
 
-  <!-- JavaScript for Tabs -->
-  <script>
-    document.querySelectorAll(".tab").forEach((tab) => {
-      tab.addEventListener("click", function (e) {
-        e.preventDefault();
-        document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
-        document.querySelectorAll(".panel").forEach((p) => p.classList.remove("active"));
-        this.classList.add("active");
-        const tabId = this.getAttribute("data-tab");
-        document.getElementById(tabId).classList.add("active");
+    <!-- JavaScript for Tabs -->
+    <script>
+      document.querySelectorAll(".tab").forEach((tab) => {
+        tab.addEventListener("click", function (e) {
+          e.preventDefault();
+          document
+            .querySelectorAll(".tab")
+            .forEach((t) => t.classList.remove("active"));
+          document
+            .querySelectorAll(".panel")
+            .forEach((p) => p.classList.remove("active"));
+          this.classList.add("active");
+          const tabId = this.getAttribute("data-tab");
+          document.getElementById(tabId).classList.add("active");
+        });
       });
-    });
 
-    // Sync sidebar navigation with tabs
-    document.querySelectorAll(".sidebar-nav a").forEach((link) => {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        const targetTab = this.getAttribute("href").substring(1);
-        document.querySelector(`.tab[data-tab="${targetTab}"]`).click();
+      // Sync sidebar navigation with tabs
+      document.querySelectorAll(".sidebar-nav a").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetTab = this.getAttribute("href").substring(1);
+          document.querySelector(`.tab[data-tab="${targetTab}"]`).click();
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
