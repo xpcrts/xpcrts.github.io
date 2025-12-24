@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chanrithisak Phok (Cal) - Personal Page</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Left Sidebar (no title bar change) -->
+    <aside class="sidebar">
+      <div class="window-title">Chanrithisak Phok (Cal)</div>
+
+      <img
+        src="public/chanrithisak_phok_profile.jpeg"
+        alt="Chanrithisak Phok (Cal)"
+        class="profile-img"
+      />
+
+      <div class="contact-info">
+        <i class="fas fa-user-graduate"></i> Undergraduate Student<br />
+        <i class="fas fa-building"></i> Your Lab / Group at Your Department<br />
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:phokchanrithisak@gmail.com">phokchanrithisak@gmail.com</a><br />
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/yourgithub" target="_blank">GitHub</a> |
+        <i class="fas fa-graduation-cap"></i>
+        <a href="#" target="_blank">Google Scholar</a> |
+        <i class="fab fa-linkedin"></i>
+        <a href="#" target="_blank">LinkedIn</a><br /><br />
+        <a href="#">CV</a>, <a href="#">transcript</a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#about">About Me</a>
+        <a href="#publications">My Publications</a>
+        <a href="#projects">Projects</a>
+      </nav>
+
+      <div class="news">
+        <strong>News (More Updates)</strong><br />
+        202X.XX Joining the Your Group as a PhD student in Fall '2X.<br />
+      </div>
+    </aside>
+
+    <!-- Right Main Content - Now with title bar + X button on right -->
+    <main class="main-content">
+      <div class="title-bar">
+        <span class="window-title">Welcome to My Homepage</span>
+        <button class="close-btn" onclick="window.location.href='bsod.html'">X</button>
+      </div>
+
+      <!-- Retro Tab Buttons -->
+      <div class="tabs">
+        <a href="#about" class="tab active" data-tab="about">About Me</a>
+        <a href="#publications" class="tab" data-tab="publications">My Publications</a>
+        <a href="#projects" class="tab" data-tab="projects">Projects</a>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="tab-content">
+        <section id="about" class="panel active">
+          <h2>About Me</h2>
+          <p>
+            I'm a X-year PhD student advised by Prof. Your Advisor in the Your
+            Lab at Your University. Previously worked with Prof. Previous
+            Advisor in the Previous Lab at Previous University.
+            <!-- Your full bio text here -->
+          </p>
+          <p>
+            Today, with the explosion of data, more and more people are in
+            desperate need to access and make use of data in more and more
+            fields, such as social science and healthcare. However, both
+            domain-specific and programming skills are required for an
+            individual to do so, but not everyone has the background...
+            [continue your bio here]
+          </p>
+        </section>
+
+        <section id="publications" class="panel">
+          <h2>My Publications</h2>
+          <div class="publication">
+            <strong>Workload-Aware Query Recommendation Using Deep Learning To Appear in IEEE EDBT '2X.</strong><br />
+            Author1, Author2, <strong>Chanrithisak Phok</strong>, Author3, Author4.
+          </div>
+          <div class="publication">
+            <strong>Summarizing Provenance of Aggregation Query Results in Relational Databases IEEE ICDE '2X: 1955-1960.</strong><br />
+            Author1, <strong>Chanrithisak Phok</strong>, Author2, Author3.
+          </div>
+          <div class="publication">
+            <strong>Pastwatch: On the Usability of Provenance Data in Relational Databases IEEE ICDE '20: 1882-1885.</strong><br />
+            Author1, <strong>Chanrithisak Phok</strong>, Author2.
+          </div>
+        </section>
+
+        <section id="projects" class="panel">
+          <h2>Projects</h2>
+          <h3>On-Going Projects</h3>
+          <h4>Bottom-Up Standardization for Data Preparation Programs</h4>
+          <p>
+            Data preparation is the process of cleaning, transforming, and
+            structuring raw data into a format that is usable for downstream
+            data-powered applications... [continue your project description here]
+          </p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Production credit -->
+  <div class="production-credit">a Chanrithisak Phok Production © 2016</div>
+
+  <!-- JavaScript for Tabs -->
+  <script>
+    document.querySelectorAll(".tab").forEach((tab) => {
+      tab.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
+        document.querySelectorAll(".panel").forEach((p) => p.classList.remove("active"));
+        this.classList.add("active");
+        const tabId = this.getAttribute("data-tab");
+        document.getElementById(tabId).classList.add("active");
+      });
+    });
+
+    document.querySelectorAll(".sidebar-nav a").forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetTab = this.getAttribute("href").substring(1);
+        document.querySelector(`.tab[data-tab="${targetTab}"]`).click();
+      });
+    });
+  </script>
+</body>
+</html>

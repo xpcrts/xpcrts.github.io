@@ -1,0 +1,249 @@
+/* Authentic Windows 95 Font - crisp and readable */
+body {
+  font-family: "MS Sans Serif", "Microsoft Sans Serif", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: teal url("public/windows_95_clouds.webp") fixed center center / cover no-repeat;
+  color: black;
+  margin: 0;
+  padding: 20px 0;
+  line-height: 1.4;
+}
+
+/* Main window container */
+.wrapper {
+  display: flex;
+  max-width: 1000px;
+  margin: 20px auto;
+  background: silver;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Title bar only for main content (Welcome to My Homepage) */
+.main-content .title-bar {
+  background: navy;
+  color: white;
+  padding: 3px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  border-bottom: 2px solid #404040;
+}
+
+.main-content .window-title {
+  margin-left: 4px;
+}
+
+/* Close button (X) on the right */
+.main-content .close-btn {
+  width: 20px;
+  height: 20px;
+  background: silver;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  line-height: 16px;
+  text-align: center;
+}
+
+.main-content .close-btn:hover {
+  background: #dfdfdf;
+}
+
+/* Original sidebar title (no X button) */
+.sidebar .window-title {
+  background: navy;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 14px;
+  border-bottom: 2px solid #404040;
+}
+
+/* Left Sidebar */
+.sidebar {
+  width: 300px;
+  background: silver;
+  padding: 15px;
+  border-right: 2px solid #404040;
+  flex-shrink: 0;
+}
+
+.profile-img {
+  width: 160px;
+  height: auto;
+  border: 2px solid black;
+  display: block;
+  margin: 20px auto;
+}
+
+.sidebar h1 {
+  color: black;
+  font-size: 18px;
+  margin: 10px 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.contact-info {
+  font-size: 13px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.contact-info i {
+  color: black;
+  margin-right: 8px;
+}
+
+.contact-info a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.contact-info a:hover {
+  color: red;
+}
+
+.sidebar-nav {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.sidebar-nav a {
+  display: block;
+  margin: 8px 0;
+  color: blue;
+  text-decoration: underline;
+  font-weight: normal;
+}
+
+.sidebar-nav a:hover {
+  color: red;
+}
+
+.news {
+  font-size: 12px;
+  color: black;
+  margin-top: 20px;
+  border-top: 1px dotted gray;
+  padding-top: 10px;
+}
+
+/* Right Main Content */
+.main-content {
+  flex-grow: 1;
+  background: silver;
+  padding: 15px 25px 25px;
+}
+
+/* Retro Tabs */
+.tabs {
+  margin-bottom: 20px;
+  padding: 10px 0 0 10px;
+  background: silver;
+  border-bottom: 2px solid #404040;
+}
+
+.tab {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-right: 4px;
+  background: silver;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+}
+
+.tab:hover {
+  background: #dfdfdf;
+}
+
+.tab.active {
+  background: silver;
+  border-bottom: none;
+  padding-bottom: 10px;
+  position: relative;
+  top: 2px;
+}
+
+/* Panels */
+.panel {
+  display: none;
+  background: white;
+  padding: 20px;
+  border: 2px inset silver;
+  min-height: 400px;
+}
+
+.panel.active {
+  display: block;
+}
+
+.panel h2 {
+  color: navy;
+  font-size: 20px;
+  margin: 0 0 15px 0;
+  border-bottom: 2px solid teal;
+  padding-bottom: 5px;
+}
+
+.panel h3 {
+  color: black;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.panel h4 {
+  color: black;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.publication {
+  margin-bottom: 20px;
+}
+
+.publication strong {
+  color: purple;
+}
+
+/* Production Credit */
+.production-credit {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 14px;
+  font-family: "MS Sans Serif", "Microsoft Sans Serif", Arial, sans-serif;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: auto;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .sidebar {
+    border-right: none;
+    border-bottom: 2px solid #404040;
+  }
+}

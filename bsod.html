@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSOD</title>
+    <style>
+      body {
+        background: #0000aa;
+        color: white;
+        font-family: "MS Sans Serif", "Microsoft Sans Serif", "Fixedsys",
+          monospace;
+        font-size: 16px;
+        margin: 0;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: left;
+        line-height: 1.8;
+        cursor: default;
+      }
+
+      .windows-logo {
+        background: #c0c0c0;
+        color: black;
+        padding: 2px 8px;
+        font-weight: bold;
+        margin-bottom: 40px;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+        cursor: pointer; /* Hand cursor on hover */
+        user-select: none;
+      }
+
+      .windows-logo:hover {
+        background: #dfdfdf;
+      }
+
+      .blink {
+        animation: blink 1s steps(2, start) infinite;
+      }
+
+      @keyframes blink {
+        to {
+          visibility: hidden;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="windows-logo" onclick="history.back()" tabindex="0">
+      Back to Windows
+    </div>
+
+    An error has occurred. To continue:<br /><br />
+
+    Press Enter to return to Windows, or<br /><br />
+
+    Press CTRL+ALT+DEL to restart your computer. If you do this,<br />
+    you will lose any unsaved information in all open applications.<br /><br />
+
+    Error: 0E : 016F : BFF9B3D4<br /><br /><br />
+
+    <div>Press any key to continue <span class="blink">_</span></div>
+
+    <!-- JavaScript: Any key press OR click on logo goes back -->
+    <script>
+      // Press any key → go back
+      document.addEventListener("keydown", function () {
+        history.back();
+      });
+
+      // Also allow clicking the logo (already handled by onclick above)
+      // Extra: make logo focusable for accessibility
+      document
+        .querySelector(".windows-logo")
+        .addEventListener("keyup", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            history.back();
+          }
+        });
+    </script>
+  </body>
+</html>
