@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chanrithisak Phok (Cal) - Website</title>
-    <!-- Google Analytics X -->
+    <!-- Google Analytics -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-X6HTY3T481"
@@ -405,8 +405,6 @@
               >
                 <a
                   href="https://aseanfoundation.org/programme/east-asia-summit-hackathon/"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   <img
                     src="public/eas-hackathon-thumb.jpg"
@@ -418,7 +416,6 @@
                   <h3 class="award-title">
                     <a
                       href="https://aseanfoundation.org/programme/east-asia-summit-hackathon/"
-                      target="_blank"
                       style="color: purple; text-decoration: none"
                     >
                       East Asia Summit Hackathon
@@ -438,7 +435,6 @@
                   </ul>
                   <a
                     href="https://aseanfoundation.org/programme/east-asia-summit-hackathon/"
-                    target="_blank"
                     class="blog-button"
                   >
                     Read Blog
@@ -450,7 +446,6 @@
             <div class="blog-card">
               <a
                 href="https://www.facebook.com/KITinstitute/photos/1793063127488865/"
-                target="_blank"
               >
                 <img
                   src="public/cimb.jpg"
@@ -461,7 +456,6 @@
                 <h3>
                   <a
                     href="https://www.facebook.com/KITinstitute/photos/1793063127488865/"
-                    target="_blank"
                     style="text-decoration: none"
                   >
                     KIT Academic Highlights – Student Life
@@ -473,7 +467,6 @@
                 </p>
                 <a
                   href="https://www.facebook.com/KITinstitute/photos/1793063127488865/"
-                  target="_blank"
                   class="blog-button"
                 >
                   View on Facebook
@@ -501,7 +494,6 @@
               <br /><br />
               <a
                 href="https://www.strava.com/athletes/42131233"
-                target="_blank"
                 style="color: blue; text-decoration: underline"
               >
                 Follow me on Strava →
@@ -640,6 +632,16 @@
 
         sessionStorage.setItem("startupPlayed", "true");
       }
+
+      // === NEW: Automatically make all external http/https links open in a new tab ===
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelectorAll('a[href^="http://"], a[href^="https://"]')
+          .forEach(function (link) {
+            link.setAttribute("target", "_blank");
+            link.setAttribute("rel", "noopener noreferrer");
+          });
+      });
     </script>
   </body>
 </html>
