@@ -25,6 +25,33 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="icon" type="image/png" href="public/favicon.png" />
+    <style>
+      /* Small real-time clock next to the close button (Minesweeper LED style) */
+      .title-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      .title-bar-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .real-clock {
+        font-family: "DS-Digital", "Electronic", "Courier New", monospace;
+        font-size: 18px;
+        font-weight: bold;
+        color: red;
+        background: black;
+        padding: 2px 6px;
+        min-width: 70px;
+        text-align: center;
+        border: 2px inset silver;
+      }
+    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -81,7 +108,10 @@
       <main class="main-content">
         <div class="title-bar">
           <span class="window-title">Welcome to My Homepage</span>
-          <button class="close-btn" id="close-button">X</button>
+          <div class="title-bar-right">
+            <div class="real-clock" id="real-clock">00:00:00</div>
+            <button class="close-btn" id="close-button">X</button>
+          </div>
         </div>
 
         <!-- Tabs -->
@@ -534,11 +564,23 @@
       <source src="public/windows_shutdown.mp3" type="audio/mpeg" />
     </audio>
 
-    <!-- JavaScript for Sounds + Tabs -->
+    <!-- JavaScript for Sounds + Tabs + Real Clock -->
     <script>
       const startupAudio = document.getElementById("startup-sound");
       const tabAudio = document.getElementById("tab-sound");
       const shutdownAudio = document.getElementById("shutdown-sound");
+      const realClock = document.getElementById("real-clock");
+
+      // Real-time clock (user's local time, HH:MM:SS, 24-hour format)
+      function updateRealClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+        realClock.textContent = `${hours}:${minutes}:${seconds}`;
+      }
+      updateRealClock();
+      setInterval(updateRealClock, 1000);
 
       // Play tab sound
       function playTabSound() {
@@ -558,14 +600,12 @@
           if (playPromise !== undefined) {
             playPromise
               .then(() => {
-                // Wait for sound to finish (use duration or fallback timeout)
-                const duration = shutdownAudio.duration * 520; // fallback 3 seconds
+                const duration = shutdownAudio.duration * 520 || 3000; // fallback 3s
                 setTimeout(() => {
                   window.location.href = "bsod.html";
                 }, duration);
               })
               .catch(() => {
-                // If sound blocked, redirect immediately
                 window.location.href = "bsod.html";
               });
           }
@@ -618,7 +658,6 @@
           const playPromise = startupAudio.play();
           if (playPromise !== undefined) {
             playPromise.catch(() => {
-              // If blocked, play on first interaction
               const unlockAndPlay = () => {
                 startupAudio.play();
                 document.removeEventListener("click", unlockAndPlay);
@@ -633,7 +672,7 @@
         sessionStorage.setItem("startupPlayed", "true");
       }
 
-      // === NEW: Automatically make all external http/https links open in a new tab ===
+      // External links open in new tab
       document.addEventListener("DOMContentLoaded", function () {
         document
           .querySelectorAll('a[href^="http://"], a[href^="https://"]')
