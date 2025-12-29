@@ -106,10 +106,18 @@
 
       <!-- Right Main Content -->
       <main class="main-content">
+        <!-- <div class="title-bar">
+          <span class="window-title">Welcome to My Homepage</span>
+          <div class="title-bar-right">
+            <div class="real-clock" id="real-clock">00:00:00</div>
+            <button class="close-btn" id="close-button">X</button>
+          </div>
+        </div> -->
         <div class="title-bar">
           <span class="window-title">Welcome to My Homepage</span>
           <div class="title-bar-right">
             <div class="real-clock" id="real-clock">00:00:00</div>
+            <div class="real-weather" id="real-weather">--°C</div>
             <button class="close-btn" id="close-button">X</button>
           </div>
         </div>
@@ -570,6 +578,35 @@
       const tabAudio = document.getElementById("tab-sound");
       const shutdownAudio = document.getElementById("shutdown-sound");
       const realClock = document.getElementById("real-clock");
+      const realWeather = document.getElementById("real-weather");
+
+      // Fetch user's approximate location via IP, then get current temperature
+      fetch("https://ipapi.co/json/")
+        .then((response) => response.json())
+        .then((locationData) => {
+          if (locationData.latitude && locationData.longitude) {
+            const lat = locationData.latitude;
+            const lon = locationData.longitude;
+
+            // Open-Meteo API: current temperature in Celsius (default unit)
+            fetch(
+              `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m&temperature_unit=celsius`
+            )
+              .then((resp) => resp.json())
+              .then((weatherData) => {
+                const temp = Math.round(weatherData.current.temperature_2m);
+                realWeather.textContent = `${temp}°C`;
+              })
+              .catch(() => {
+                realWeather.textContent = "??°C";
+              });
+          } else {
+            realWeather.textContent = "??°C";
+          }
+        })
+        .catch(() => {
+          realWeather.textContent = "??°C";
+        });
 
       // Real-time clock (user's local time, HH:MM:SS, 24-hour format)
       function updateRealClock() {

@@ -392,3 +392,14 @@ body {
   }
 }
 
+.real-weather {
+  font-family: "DS-Digital", "Electronic", "Courier New", monospace;
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+  background: black;
+  padding: 2px 6px;
+  min-width: 60px;
+  text-align: center;
+  border: 2px inset silver;
+}
