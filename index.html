@@ -114,11 +114,24 @@
         min-width: 95px;
       }
 
-      .close-btn {
+      .close-btn,
+      .theme-toggle-btn {
         width: 22px !important;
         height: 22px !important;
         font-size: 14px !important;
         line-height: 18px !important;
+        background: #c0c0c0;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .close-btn:hover,
+      .theme-toggle-btn:hover {
+        background: #dfdfdf;
       }
 
       #wordart-canvas {
@@ -297,6 +310,7 @@
                 Loading...
               </div>
               <div class="site-age" id="site-age">0d 0h 0m</div>
+              <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Mode">☀️</button>
               <button class="close-btn" id="close-button">X</button>
             </div>
           </div>
@@ -663,7 +677,6 @@
             </section>
 
             <!-- Extracurricular Activities -->
-            <!-- Extracurricular Activities -->
             <section id="activities" class="panel">
               <h2>Extracurricular Activities</h2>
 
@@ -977,6 +990,26 @@
     </audio>
 
     <script>
+      // === Theme Toggle ===
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+
+      if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+        themeToggle.textContent = "🌙";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        if (body.classList.contains("dark-mode")) {
+          themeToggle.textContent = "🌙";
+          localStorage.setItem("darkMode", "enabled");
+        } else {
+          themeToggle.textContent = "☀️";
+          localStorage.setItem("darkMode", "disabled");
+        }
+      });
+
       // === Window Hide / Show Logic ===
       const mainWindow = document.getElementById("main-window");
       const backButton = document.getElementById("back-button");
@@ -1003,19 +1036,15 @@
       backButton.addEventListener("click", showWindow);
       document.addEventListener("keydown", showWindow);
 
-      // === Individual Text-to-Speech Buttons with Mute/Unmute Icon Toggle ===
+      // === Individual Text-to-Speech Buttons ===
       document.querySelectorAll(".speak-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           if ("speechSynthesis" in window) {
-            // Cancel any ongoing speech
             speechSynthesis.cancel();
-
-            // Toggle: if currently speaking, stop; else start
             if (btn.classList.contains("speaking")) {
               btn.classList.remove("speaking");
               btn.innerHTML = "🔊";
             } else {
-              // Start speaking
               const text = btn.getAttribute("data-speak");
               const utterance = new SpeechSynthesisUtterance(text);
               utterance.lang = "en-US";
@@ -1034,7 +1063,7 @@
 
               speechSynthesis.speak(utterance);
               btn.classList.add("speaking");
-              btn.innerHTML = "🔇"; // Show muted speaker while speaking
+              btn.innerHTML = "🔇";
             }
           } else {
             alert("Sorry, your browser does not support text-to-speech.");

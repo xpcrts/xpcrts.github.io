@@ -11,6 +11,13 @@ body {
   margin: 0;
   padding: 20px 0;
   line-height: 1.4;
+  transition: background 1s ease, color 0.5s ease;
+}
+
+body.dark-mode {
+  background: #000033 url("public/windows_95_clouds.webp") fixed center center /
+    cover no-repeat;
+  color: #e0e0e0;
 }
 
 /* Main window container */
@@ -26,6 +33,15 @@ body {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
 }
 
+body.dark-mode .wrapper {
+  background: #1a1a1a;
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9);
+}
+
 /* Title bar only for main content (Welcome to My Homepage) */
 .main-content .title-bar {
   background: navy;
@@ -39,12 +55,17 @@ body {
   border-bottom: 2px solid #404040;
 }
 
+body.dark-mode .main-content .title-bar {
+  background: #000066;
+}
+
 .main-content .window-title {
   margin-left: 4px;
 }
 
-/* Close button (X) on the right */
-.main-content .close-btn {
+/* Close button and theme toggle */
+.main-content .close-btn,
+.main-content .theme-toggle-btn {
   width: 20px;
   height: 20px;
   background: silver;
@@ -60,8 +81,24 @@ body {
   text-align: center;
 }
 
-.main-content .close-btn:hover {
+body.dark-mode .main-content .close-btn,
+body.dark-mode .main-content .theme-toggle-btn {
+  background: #404040;
+  color: white;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #202020;
+  border-bottom: 2px solid #202020;
+}
+
+.main-content .close-btn:hover,
+.main-content .theme-toggle-btn:hover {
   background: #dfdfdf;
+}
+
+body.dark-mode .main-content .close-btn:hover,
+body.dark-mode .main-content .theme-toggle-btn:hover {
+  background: #606060;
 }
 
 /* Original sidebar title (no X button) */
@@ -74,6 +111,10 @@ body {
   border-bottom: 2px solid #404040;
 }
 
+body.dark-mode .sidebar .window-title {
+  background: #000066;
+}
+
 /* Left Sidebar */
 .sidebar {
   width: 300px;
@@ -81,6 +122,10 @@ body {
   padding: 15px;
   border-right: 2px solid #404040;
   flex-shrink: 0;
+}
+
+body.dark-mode .sidebar {
+  background: #1a1a1a;
 }
 
 .profile-img {
@@ -119,6 +164,14 @@ body {
   color: red;
 }
 
+body.dark-mode .contact-info a {
+  color: #88aaff;
+}
+
+body.dark-mode .contact-info a:hover {
+  color: #ffaa00;
+}
+
 .sidebar-nav {
   margin: 20px 0;
   text-align: left;
@@ -136,12 +189,25 @@ body {
   color: red;
 }
 
+body.dark-mode .sidebar-nav a {
+  color: #88aaff;
+}
+
+body.dark-mode .sidebar-nav a:hover {
+  color: #ffaa00;
+}
+
 .news {
   font-size: 12px;
   color: black;
   margin-top: 20px;
   border-top: 1px dotted gray;
   padding-top: 10px;
+}
+
+body.dark-mode .news {
+  color: #ccccff;
+  border-top: 1px dotted #444;
 }
 
 /* Right Main Content */
@@ -151,12 +217,20 @@ body {
   padding: 15px 25px 25px;
 }
 
+body.dark-mode .main-content {
+  background: #1a1a1a;
+}
+
 /* Retro Tabs */
 .tabs {
   margin-bottom: 20px;
   padding: 10px 0 0 10px;
   background: silver;
   border-bottom: 2px solid #404040;
+}
+
+body.dark-mode .tabs {
+  background: #1a1a1a;
 }
 
 .tab {
@@ -173,8 +247,21 @@ body {
   border-bottom: 2px solid #404040;
 }
 
+body.dark-mode .tab {
+  background: #404040;
+  color: #e0e0e0;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #202020;
+  border-bottom: 2px solid #202020;
+}
+
 .tab:hover {
   background: #dfdfdf;
+}
+
+body.dark-mode .tab:hover {
+  background: #606060;
 }
 
 .tab.active {
@@ -185,6 +272,10 @@ body {
   top: 2px;
 }
 
+body.dark-mode .tab.active {
+  background: #222233;
+}
+
 /* Panels */
 .panel {
   display: none;
@@ -192,10 +283,17 @@ body {
   padding: 20px;
   border: 2px inset silver;
   min-height: 400px;
+  color: black;
 }
 
 .panel.active {
   display: block;
+}
+
+body.dark-mode .panel {
+  background: #222233;
+  color: #e0e0e0;
+  border: 2px inset #404040;
 }
 
 .panel h2 {
@@ -206,27 +304,33 @@ body {
   padding-bottom: 5px;
 }
 
+body.dark-mode .panel h2 {
+  color: #88aaff;
+  border-bottom: 2px solid #004488;
+}
+
 .panel h3 {
   color: black;
   font-size: 16px;
   margin-top: 20px;
 }
 
-.panel h4 {
-  color: black;
-  font-size: 14px;
-  margin-top: 15px;
+body.dark-mode .panel h3 {
+  color: #ccccff;
 }
 
-.publication {
-  margin-bottom: 20px;
-}
-
-.publication strong {
+/* Publications and awards */
+.publication strong,
+.award-title {
   color: purple;
 }
 
-/* Honors & Awards Section - Title with location/date on same line (right-aligned) */
+body.dark-mode .publication strong,
+body.dark-mode .award-title {
+  color: #ff88ff;
+}
+
+/* Honors & Awards Section */
 .award-item {
   margin-bottom: 35px;
   padding-bottom: 20px;
@@ -239,19 +343,15 @@ body {
   padding-bottom: 0;
 }
 
+body.dark-mode .award-item {
+  border-bottom: 1px dotted #555;
+}
+
 .award-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 10px;
-}
-
-.award-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: purple;
-  flex: 1;
-  padding-right: 20px;
 }
 
 .award-meta-inline {
@@ -262,11 +362,19 @@ body {
   white-space: nowrap;
 }
 
+body.dark-mode .award-meta-inline {
+  color: #aaa;
+}
+
 .award-role {
   font-size: 15px;
   font-weight: bold;
   color: navy;
   margin: 8px 0 10px 0;
+}
+
+body.dark-mode .award-role {
+  color: #88aaff;
 }
 
 .award-details {
@@ -275,15 +383,14 @@ body {
   color: #333;
 }
 
-.award-details li {
-  margin-bottom: 6px;
-  line-height: 1.5;
+body.dark-mode .award-details {
+  color: #ccccff;
 }
 
-/* Blog Card - Windows 95 style with white background */
+/* Blog Card */
 .blog-card {
-  background: white; /* changed from silver to white */
-  border: 2px inset white; /* inset border like a window */
+  background: white;
+  border: 2px inset white;
   padding: 15px;
   max-width: 500px;
   margin: 20px 0;
@@ -294,68 +401,54 @@ body {
   transition: all 0.1s ease-in-out;
 }
 
+body.dark-mode .blog-card {
+  background: #222233;
+  border: 2px inset #404040;
+}
+
 .blog-card:hover {
-  border-color: #404040; /* dark border on hover */
-  transform: translateY(-2px); /* subtle lift effect */
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  border-color: #404040;
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .blog-card img {
   width: 120px;
   height: auto;
-  border: 2px solid black; /* matches profile image style */
+  border: 2px solid black;
   flex-shrink: 0;
-}
-
-.blog-card-content {
-  flex: 1;
 }
 
 .blog-card h3 {
   margin: 0 0 5px 0;
-  color: purple; /* match award title */
+  color: purple;
   font-weight: bold;
   font-size: 16px;
 }
 
-.blog-card .award-meta-inline {
-  font-size: 13px;
-  color: #444;
-  font-style: italic;
-  margin-bottom: 6px;
+body.dark-mode .blog-card h3 {
+  color: #ff88ff;
 }
 
-.blog-card .award-role {
-  font-size: 14px;
-  font-weight: bold;
-  color: navy;
-  margin-bottom: 8px;
-}
-
-.blog-card .award-details {
-  margin: 0 0 10px 0;
-  padding-left: 15px;
-  color: #333;
-  list-style-type: disc;
-}
-
-.blog-card .blog-button {
+.blog-button {
   display: inline-block;
   padding: 4px 10px;
   font-size: 12px;
-  border-radius: 12px;
   background-color: navy;
   color: white;
   text-decoration: none;
-  border: 2px outset white; /* mimic Windows 95 button */
+  border: 2px outset white;
   transition: all 0.1s;
 }
 
-.blog-card .blog-button:hover {
+body.dark-mode .blog-button {
+  background-color: #000066;
+}
+
+.blog-button:hover {
   background-color: #1a1a99;
   border: 2px inset white;
 }
-
 
 /* Production Credit */
 .production-credit {
@@ -366,8 +459,38 @@ body {
   color: white;
   font-weight: bold;
   letter-spacing: 1px;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: auto;
+}
+
+body.dark-mode .production-credit {
+  color: #ccccff;
+}
+
+/* Calculator dark mode */
+body.dark-mode .calculator {
+  background: #1a1a1a;
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+}
+
+body.dark-mode .calc-title {
+  background: #000066;
+}
+
+body.dark-mode .calc-display {
+  background: #003300;
+  color: #00ff00;
+  border: 2px inset #404040;
+}
+
+body.dark-mode .calc-btn {
+  background: #404040;
+  color: white;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #202020;
+  border-bottom: 2px solid #202020;
 }
 
 /* Responsive */
@@ -377,6 +500,10 @@ body {
   }
   .sidebar {
     border-right: none;
+    border-bottom: 2px solid #404040;
+  }
+
+  body.dark-mode .sidebar {
     border-bottom: 2px solid #404040;
   }
 
@@ -402,4 +529,8 @@ body {
   min-width: 60px;
   text-align: center;
   border: 2px inset silver;
+}
+
+body.dark-mode .contact-info i {
+  color: white;
 }
